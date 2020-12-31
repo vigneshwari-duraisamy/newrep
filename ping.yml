@@ -1,0 +1,19 @@
+---
+- hosts: demo
+  become: yes
+  gather_facts: no
+  tasks:
+    - name: restart system to reboot to newest kernel
+shell: "reboot now"
+async: 1
+poll: 0
+
+ 
+
+- name: wait for 10 seconds
+pause:
+seconds: 10
+
+ 
+
+- ping:
